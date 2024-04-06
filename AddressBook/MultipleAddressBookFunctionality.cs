@@ -133,5 +133,30 @@ namespace AddressBook
             }
 
         }
+        public void countPersonByCityAndState()
+        {
+            foreach (KeyValuePair<string, Dictionary<string, ContactDetails>> pair in AddressBooks)
+            {
+                Console.WriteLine($" in address book {pair.Key}");
+
+                Console.WriteLine("enter the city name for which you want the count ");
+                string city = Console.ReadLine();
+
+                Console.WriteLine("enter the city name for which you want the count ");
+                string state = Console.ReadLine();
+
+                int countBystate = pair.Value.Values.Count(e => e.state.Equals(state));
+                int countBycity = pair.Value.Values.Count(e => e.city.Equals(city));
+
+                Console.WriteLine($"the number of pepole in the city is {countBycity}");
+                Console.WriteLine($"the number of the pepole in the state is {countBystate}");
+
+
+
+
+            }
+
+        }
+
     }
 }
