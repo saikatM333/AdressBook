@@ -67,6 +67,34 @@ namespace AddressBook
                 }
             }
         }
+        public void searchByCityAndState()
+        {
+            Console.WriteLine("enter the city name from which you want to search the person");
+            string city = Console.ReadLine();
 
-    }
+            Console.WriteLine("enter the state name from which you want to search the person ");
+
+            string state = Console.ReadLine();
+
+            Console.WriteLine("enter the address book from which you want to search");
+            string addressBookName = Console.ReadLine();
+            IEnumerable<string> key = AddressBooks.Keys;
+            if (key.Contains(addressBookName))
+            {
+                foreach (KeyValuePair<string, ContactDetails> pair in AddressBooks[addressBookName])
+                {
+                    if (pair.Value.city.Equals(city) || pair.Value.state.Equals(state))
+                    {
+                        Console.WriteLine(pair.Key);
+                    }
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("please enter the corresct addressbook name ");
+            }
+
+        }
+        }
 }

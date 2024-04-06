@@ -39,7 +39,7 @@ public class Program
                         switch (choice)
                         {
                             case 0: multipleAddressBookFunctionality.addContactToExsistingAddressBook(); break;
-                            
+                            case 1: multipleAddressBookFunctionality.searchByCityAndState(); break;
                         }
                     }
                 }
