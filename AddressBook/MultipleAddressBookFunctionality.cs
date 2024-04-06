@@ -8,7 +8,7 @@ namespace AddressBook
 {
     public  class MultipleAddressBookFunctionality
     {
-        public static Dictionary<string, Dictionary<string, ContactDetails>> AddressBooks = new Dictionary<string, Dictionary<string, Contactdetails>>();
+        public static Dictionary<string, Dictionary<string, ContactDetails>> AddressBooks = new Dictionary<string, Dictionary<string, ContactDetails>>();
 
     }
 }
