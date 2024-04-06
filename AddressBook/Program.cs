@@ -17,6 +17,7 @@ public class Program
             switch (choice)
             {
                 case 0: addEditDeleteContact.AddContactDetails(); break;
+                case 1 : addEditDeleteContact.EditContactDetails();break;
                
             }
         }
