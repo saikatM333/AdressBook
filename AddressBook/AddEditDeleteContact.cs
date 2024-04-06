@@ -87,6 +87,36 @@ namespace AddressBook
                 }
             }
         }
+        public void DeleteContactDetails()
+        {   // logic for deleting the a contact detail of user 
+            Console.WriteLine("enter your firstname ");
+            string firstname = Console.ReadLine();
+            Console.WriteLine("Enter the lastname");
+            string lastname = Console.ReadLine();
+            bool flag = true;
+            while (flag == true)
+            {
+                foreach (ContactDetails contact in ContactList)
+                {
+                    if (contact.firstName.Equals(firstname) && contact.lastName.Equals(lastname))
+                    {
+                        ContactListRemove.Add(contact);
+                    }
+                }
+                foreach (ContactDetails contact in ContactListRemove)
+                {
+                    ContactList.Remove(contact);
+                }
+                Console.WriteLine("contact details removed succefully ");
+
+                Console.WriteLine("if you want to  delete more number of contact details press 1 else 0");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                if (choice == 0)
+                {
+                    flag = false; break;
+                }
+            }
+        }
         static ArrayList ContactList = new ArrayList();
         static ArrayList ContactListRemove = new ArrayList();
     }

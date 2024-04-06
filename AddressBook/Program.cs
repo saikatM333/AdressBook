@@ -5,8 +5,6 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("address book ");
-
-
         AddEditDeleteContact addEditDeleteContact = new AddEditDeleteContact();
 
         while (true)
@@ -18,9 +16,8 @@ public class Program
             {
                 case 0: addEditDeleteContact.AddContactDetails(); break;
                 case 1 : addEditDeleteContact.EditContactDetails();break;
-               
+                case 2 : addEditDeleteContact.DeleteContactDetails(); break;
             }
         }
-
     }
 }
