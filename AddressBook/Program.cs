@@ -40,6 +40,7 @@ public class Program
                         {
                             case 0: multipleAddressBookFunctionality.addContactToExsistingAddressBook(); break;
                             case 1: multipleAddressBookFunctionality.searchByCityAndState(); break;
+                            case 2: multipleAddressBookFunctionality.displayNameByCityandState(); break;
                         }
                     }
                 }
