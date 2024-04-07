@@ -37,9 +37,10 @@ namespace AddressBook
             if (AddressBooks.ContainsKey(AddressBookName))
 
             {
-                if (AddressBooks[AddressBookName].ContainsKey($"{firstname} {lastname}"))
+                if (!AddressBooks[AddressBookName].ContainsKey($"{firstname} {lastname}"))
                 {
                     AddressBooks[$"{AddressBookName}"].Add($"{firstname} {lastname}", new ContactDetails(firstname, lastname, email, phone, address, city, state, zip));
+                    Console.WriteLine($"the contact details is added successfully in {AddressBookName}");
                 }
 
                 else
@@ -56,6 +57,7 @@ namespace AddressBook
                     Dictionary<string, ContactDetails> value = new Dictionary<string, ContactDetails>();
                     value.Add($"{firstname} {lastname}", new ContactDetails(firstname, lastname, email, phone, address, city, state, zip));
                     AddressBooks.Add(AddressBookName, value);
+                    Console.WriteLine($"the contact details is added successfully {AddressBookName}");
 
                 }
                 catch (Exception ex)
@@ -83,18 +85,20 @@ namespace AddressBook
             {
                 foreach (KeyValuePair<string, ContactDetails> pair in AddressBooks[addressBookName])
                 {
-                    if (pair.Value.city.Equals(city) || pair.Value.state.Equals(state))
+                    if (pair.Value.city.Equals(city) )
                     {
-                        Console.WriteLine(pair.Key);
+                        Console.WriteLine($"city :{city} , person :  {pair.Key}");
+                    }
+                    if (pair.Value.state.Equals(state))
+                    {
+                        Console.WriteLine($"state : {state} , person:  {pair.Key}");
                     }
                 }
             }
-
             else
             {
                 Console.WriteLine("please enter the corresct addressbook name ");
             }
-
         }
         public void displayNameByCityandState()
         {
@@ -106,32 +110,30 @@ namespace AddressBook
 
             foreach (KeyValuePair<string, Dictionary<string, ContactDetails>> pair in AddressBooks)
             {
-                Console.WriteLine($"the address book {0}", pair.Key);
+                Console.WriteLine("the address book {0}", pair.Key);
                 foreach (KeyValuePair<string, ContactDetails> keyValuePair in pair.Value)
                 {
 
                     if (keyValuePair.Value.state.Equals(state) && keyValuePair.Value.city.Equals(city))
                     {
-                        Console.WriteLine(keyValuePair.Key);
+                        Console.WriteLine($"state : {state}, city : {city}, persons name :{keyValuePair.Key}");
                     }
 
                     else if (keyValuePair.Value.state.Equals(state))
                     {
-                        Console.WriteLine(keyValuePair.Key);
+                        Console.WriteLine($"state : {state}, persons name :{keyValuePair.Key}");
                     }
                     else if (keyValuePair.Value.city.Equals(city))
                     {
-                        Console.WriteLine(keyValuePair.Key);
+                        Console.WriteLine($"city : {city}, persons name :{keyValuePair.Key}");
                     }
 
                     else
                     {
-                        Console.WriteLine("no person is present in the city");
+                        Console.WriteLine("no person is present in the city or state");
                     }
                 }
-
             }
-
         }
         public void countPersonByCityAndState()
         {
@@ -150,13 +152,7 @@ namespace AddressBook
 
                 Console.WriteLine($"the number of pepole in the city is {countBycity}");
                 Console.WriteLine($"the number of the pepole in the state is {countBystate}");
-
-
-
-
             }
-
         }
-
     }
 }
