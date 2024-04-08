@@ -9,14 +9,14 @@ namespace AddressBook
 {
     public class ContactDetails
     {
-        public string firstName;
-        public string lastName;
-        public string email;
-        public string phone;
-        public string address;
-        public string city;
-        public string state;
-        public string zip;
+        public string firstName { get; set; }
+        public string lastName{get;set;}
+        public string email{get;set;}
+        public string phone{get;set;}
+        public string address{get;set;}
+        public string city{get;set;}
+        public string state{get;set;}
+        public string zip{get;set;}
         public ContactDetails(string firstName, string lastName, string email, string phone, string address, string city, string state, string zip)
         {
             try
